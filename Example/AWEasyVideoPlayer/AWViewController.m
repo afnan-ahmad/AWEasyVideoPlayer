@@ -12,7 +12,7 @@
 
 @interface AWViewController () <AWEasyVideoPlayerDelegate>
 
-@property (nonatomic, strong) AWEasyVideoPlayer *videoPlayer;
+@property (nonatomic, strong) IBOutlet AWEasyVideoPlayer *videoPlayer;
 
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UILabel *statusLabel;
@@ -20,6 +20,7 @@
 @end
 
 @implementation AWViewController
+@synthesize videoPlayer;
 
 - (void)viewDidLoad
 {
@@ -31,12 +32,12 @@
         - http://uploadingit.com/file/pkgz6mplwtodlzl6/Mac%20OS%20X%20Snow%20Leopard%20Intro%20Movie%20HD.mp4
     */
     
-    AWEasyVideoPlayer *videoPlayer = [[AWEasyVideoPlayer alloc] init];
+    /*AWEasyVideoPlayer *videoPlayer = [[AWEasyVideoPlayer alloc] init];*/
     [videoPlayer setDelegate:self];
     [videoPlayer setURL:[NSURL URLWithString:@"https://v.cdn.vine.co/videos_trellis/2013/10/12/046D49BF981000873061781766144_1.3.4_xGpElVkrzkUjtqsRMBhS0hutCQh3.NA5vT9LsJXWQ5XRXPwOSY4cmpVH_KdDfG0s.mp4"]];
     [videoPlayer setEndAction:AWEasyVideoPlayerEndActionLoop];
-    [[self view] addSubview:videoPlayer];
-    [self setVideoPlayer:videoPlayer];
+    //[[self view] addSubview:videoPlayer];
+    //[self setVideoPlayer:videoPlayer];
     
     UIButton *playButton = [[UIButton alloc] init];
     [playButton addTarget:self action:@selector(play:) forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +59,7 @@
     
     [super viewWillLayoutSubviews];
     
-    [[self videoPlayer] setFrame:CGRectMake((CGRectGetWidth([[self view] frame]) - 320) / 2.0, 20, 320, 320)];
+    /*[[self videoPlayer] setFrame:CGRectMake((CGRectGetWidth([[self view] frame]) - 320) / 2.0, 20, 320, 320)];*/
     
     [[self playButton] setFrame:CGRectMake((CGRectGetWidth([[self view] frame]) - 100) / 2.0, CGRectGetMaxY([[self videoPlayer] frame]) + 20, 100, 44)];
     [[self statusLabel] setFrame:CGRectMake(0, CGRectGetMaxY([[self playButton] frame]) + 20, 320, 20)];

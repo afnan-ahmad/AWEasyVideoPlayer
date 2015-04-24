@@ -8,20 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, AWEasyVideoPlayerState) {
-    
-    AWEasyVideoPlayerStateStopped,
-    AWEasyVideoPlayerStateLoading,
-    AWEasyVideoPlayerStatePlaying,
-    AWEasyVideoPlayerStatePaused
-    
+typedef NS_ENUM (NSInteger, AWEasyVideoPlayerState) {
+	AWEasyVideoPlayerStateStopped,
+	AWEasyVideoPlayerStateLoading,
+	AWEasyVideoPlayerStatePlaying,
+	AWEasyVideoPlayerStatePaused
 };
 
-typedef NS_ENUM(NSInteger, AWEasyVideoPlayerEndAction) {
-    
-    AWEasyVideoPlayerEndActionStop,
-    AWEasyVideoPlayerEndActionLoop
-    
+typedef NS_ENUM (NSInteger, AWEasyVideoPlayerEndAction) {
+	AWEasyVideoPlayerEndActionStop,
+	AWEasyVideoPlayerEndActionLoop
 };
 
 @protocol AWEasyVideoPlayerDelegate;
@@ -37,16 +33,16 @@ typedef NS_ENUM(NSInteger, AWEasyVideoPlayerEndAction) {
 
 @property (nonatomic, assign, getter = isMuted) BOOL muted;
 
--(void)play;
--(void)pause;
--(void)stop;
+- (void)play;
+- (void)pause;
+- (void)stop;
 
 @end
 
 @protocol AWEasyVideoPlayerDelegate <NSObject>
 
 @optional
--(void)videoPlayer:(AWEasyVideoPlayer *)videoPlayer changedState:(AWEasyVideoPlayerState)state;
--(void)videoPlayer:(AWEasyVideoPlayer *)videoPlayer encounteredError:(NSError *)error;
+- (void)videoPlayer:(AWEasyVideoPlayer *)videoPlayer changedState:(AWEasyVideoPlayerState)state;
+- (void)videoPlayer:(AWEasyVideoPlayer *)videoPlayer encounteredError:(NSError *)error;
 
 @end
